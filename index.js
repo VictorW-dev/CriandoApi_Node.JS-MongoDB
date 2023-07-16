@@ -23,7 +23,7 @@ app.get('/', (req, res) => {
 
     // mostrar req
 
-    res.json({message: 'Oi Express!'})
+    res.json({ message: 'Oi Express!' })
 
 })
 
