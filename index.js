@@ -1,8 +1,10 @@
 // config inicial
 const express = require('express')
 const mongoose = require('mongoose')
-const config = require('./config')
 const app = express()
+
+const config = require('./config')
+const personRoutes = require('./routes/personRoutes')
 
 // forma de ler JSON / middlewares
 app.use(
@@ -12,6 +14,9 @@ app.use(
 )
 
 app.use(express.json())
+
+// rotas da API
+app.use('/person', personRoutes)
 
 // rota inicial / endpoint
 app.get('/', (req, res) => {
