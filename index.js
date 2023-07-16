@@ -3,8 +3,9 @@ const express = require('express')
 const mongoose = require('mongoose')
 const app = express()
 
-const config = require('./config')
 const personRoutes = require('./routes/personRoutes')
+
+require('dotenv').config()
 
 // forma de ler JSON / middlewares
 app.use(
@@ -28,8 +29,8 @@ app.get('/', (req, res) => {
 })
 
 // entregar uma porta
-const DB_USER = config.databaseUsername
-const DB_PASSWORD = config.databasePassword
+const DB_USER = process.env.DB_USER
+const DB_PASSWORD = encodeURIComponent(process.env.DB_PASSWORD)
 
 mongoose
     .connect(
